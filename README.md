@@ -1,8 +1,8 @@
-# fff (*Fucking Fast File-Manager*)
+# bff (*Bloated Fucking fff*)
 
 <a href="https://asciinema.org/a/qvNlrFrGB3xKZXb6GkremjZNp" target="_blank"><img src="https://asciinema.org/a/qvNlrFrGB3xKZXb6GkremjZNp.svg" alt="img" height="210px" align="right"/></a>
 
-A simple file manager written in `bash`.
+This is a distribution of fff with my own bloat and other people's patches. I made it so i can git clone it incase i lose it but it's gonna be public now ig lol
 
 <a href="https://travis-ci.org/dylanaraps/fff"><img src="https://travis-ci.org/dylanaraps/fff.svg?branch=master"></a>
 <a href="https://github.com/dylanaraps/fff/releases"><img src="https://img.shields.io/github/release/dylanaraps/fff.svg"></a>
@@ -21,6 +21,13 @@ A simple file manager written in `bash`.
 - **Display images with w3m-img!**
 - Supports `$CDPATH`.
 
+### BFF additions (in case you couldnt tell(you probably couldnt)):
+- I: Nerdicons support. (thanks Sidd-Dino!)
+- u: ncdu/du support (original patch by Docbroke) 
+- z: file search using fdfind/find
+- config file sourced from either ~/.fffrc or ~/.config/fff/.fffrc
+(use make install-bff to install it as bff instead of fff)
+
 
 ## Table of Contents
 
@@ -35,6 +42,7 @@ A simple file manager written in `bash`.
         * [Fish](#fish)
 * [Usage](#usage)
 * [Customization](#customization)
+* [Init file](#init-file)
 * [Customizing the keybindings.](#customizing-the-keybindings)
     * [Keybindings](#keybindings)
     * [Disabling keybindings.](#disabling-keybindings)
@@ -170,6 +178,9 @@ c: clear file selections
 q: exit with 'cd' (if enabled).
 Ctrl+C: exit without 'cd'.
 ```
+## Init file
+
+It should be located at ~/.fffrc. If it doesn't exist, it's ignored. It's not required and can be replaced by just placing aliases in your shell profile, but it's still a neat way to manage your settings
 
 ## Customization
 
