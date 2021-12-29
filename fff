@@ -1339,7 +1339,9 @@ key() {
                 clear_screen
                 status_line "${list[scroll]}"
                 "${FFF_STAT_CMD:-stat}" "${list[scroll]}"
-				# du -s ${list[scroll]}
+                # i honestly dont know what the fuck FFF_STAT_CMD is and where did it come from
+                # nevermind it's literally in the readme lol i just wasted 10+ precious minutes of my life
+                printf "size(human-readable): "; du -hs0 ${list[scroll]} | cut -f -1
                 read -ern 1
                 redraw
             }
@@ -1394,7 +1396,7 @@ key() {
 
         # Go to '$HOME'.
         "${FFF_KEY_GO_HOME:='~'}")
-            open ~
+            open $HOME
         ;;
 
         # Go to trash.
@@ -1429,8 +1431,15 @@ key() {
             read -ern 1
             open "$PWD"
         ;;
-        # a very raw find/fd-find shortcut. please make a PR improving it if you know bash
         "z")
+            clear_screen
+            reset_terminal
+            less ${list[scroll]}
+            setup_terminal
+            redraw
+        ;;
+        # a very raw find/fd-find shortcut. please make a PR improving it if you know bash
+        "v")
             cmd_line "recursive search: "
 
             [[ -n $cmd_reply ]] &&
